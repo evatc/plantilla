@@ -3,21 +3,11 @@
 
 import sys
 import mylib
+import ejercicio_5
 
 
-def main(args :list[str]) -> None:
-    """ 
-        Programa principal, sys.argv debe contener al menos un elemento a procesar
-        consultar https://docs.python.org/3/library/sys.html#sys.argv
-    """
-    print('Programa de lectura de ficheros')
-    if len(args) > 1: # Tiene al menos 2 argumentos
-        ruta_fichero = args[1]
-        with open(ruta_fichero, 'r') as fichero: # Abrir el fichero en modo lectura
-            líneas = mylib.contar_lineas(fichero) # Llamamos a la función de nuestra biblioteca
-            print(f'El fichero {ruta_fichero} tiene {líneas} líneas')
-    else:
-        print('No hay fichero que procesar')    
+def main(args :list[str]) -> bool:
+    print(ejercicio_5.es_primo(5))
 
 
 if __name__ == '__main__': # Si este modulo es el principal
