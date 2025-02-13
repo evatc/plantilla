@@ -18,8 +18,10 @@ def es_primo(numero: int) -> bool:
 ##############################
 
 def test_es_primo():
-    numero2 = es_primo(0)
-    numero3 = es_primo(1)
+    numero1 = es_primo(2)
+    numero2 = es_primo(6)
+    numero3 = es_primo(5)
+    assert numero1 == True
     assert numero2 == False
     assert numero3 == True
 
