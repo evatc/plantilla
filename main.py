@@ -4,10 +4,11 @@
 import sys
 import mylib
 import ejercicio_5
-
+import ejercicio_8
 
 def main(args :list[str]) -> bool:
     print(ejercicio_5.es_primo(5))
+    print(ejercicio_8.inverso(627))
 
 
 if __name__ == '__main__': # Si este modulo es el principal
