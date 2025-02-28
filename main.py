@@ -3,13 +3,25 @@
 
 import sys
 import mylib
-import ejercicio_5
-import ejercicio_8
+import tema1.ejercicio_8
+import tema1.ejercicio_5
+import tema2.ejercicio_3
+import tema2.ejercicio_4
 
 def main(args :list[str]) -> bool:
-    print(ejercicio_5.es_primo(5))
-    print(ejercicio_8.inverso(627))
-
+    #print(tema1.ejercicio_5.es_primo(5))
+    #print(tema1.ejercicio_8.inverso(627))
+    #print(tema2.ejercicio_3.voraz([1,3,2]))
+    nodos = [{'Sevilla'}, {'Madrid'}, {'Barcelona'}, {'Cuenca'}, {'Valencia'}]
+    aristas = []
+    aristas.append(('Sevilla', 'Madrid', 7))
+    aristas.append(('Madrid', 'Barcelona', 5))
+    aristas.append(('Madrid', 'Cuenca', 2))
+    aristas.append(('Barcelona', 'Valencia', 4))
+    aristas.append(('Cuenca', 'Valencia', 3))
+    arbol_expansion_minima = tema2.ejercicio_4.kruskal(aristas, nodos)
+    for arista in arbol_expansion_minima:
+        print(arista)
 
 if __name__ == '__main__': # Si este modulo es el principal
     if '--test' in sys.argv: # Si existe "--test" en la linea de argumentos
