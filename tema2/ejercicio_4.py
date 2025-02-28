@@ -38,3 +38,9 @@ def kruskal(aristas :list, conjuntos :list) -> list:
             solucion.append(arista)
             union(conjuntos, arista)
     return solucion
+
+def sumar(lista: list) -> float:
+    cont = 0
+    for i in lista:
+        cont += i[2]
+    return cont

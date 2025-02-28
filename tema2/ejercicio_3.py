@@ -17,29 +17,38 @@ def es_completable(solucion :list, candidato :any) -> any:
     return solucion
 
 def voraz(candidatos :list) -> list:
-    if(len(candidatos) % 2 == 0):
-        if candidato[0] > candidato[1]:
-            maximo = candidato[0]
-            minimo = candidato[1]
+    solucion = []
+    if(len(candidatos) != 0):
+        if(len(candidatos) % 2 == 0):
+            if candidato[0] > candidato[1]:
+                maximo = candidato[0]
+                minimo = candidato[1]
+            else:
+                maximo = candidato[1]
+                minimo = candidato[0]
+            candidatos = candidatos[2:]
         else:
-            maximo = candidato[1]
-            minimo = candidato[0]
-        candidatos = candidatos[2:]
-    else:
-        maximo = candidatos[0]
-        minimo = candidatos[0]
-        candidatos = candidatos[1:]
+            maximo = candidatos[0]
+            minimo = candidatos[0]
+            candidatos = candidatos[1:]
 
-    solucion = [minimo,maximo]
-    
-    while len(candidatos) > 0:
-        c = mejor_candidato(candidatos)
-        candidatos.remove(c[0])
-        candidatos.remove(c[1])
-        es_completable(solucion, c)
+        solucion = [minimo,maximo]
+        
+        while len(candidatos) > 0:
+            c = mejor_candidato(candidatos)
+            candidatos.remove(c[0])
+            candidatos.remove(c[1])
+            es_completable(solucion, c)
     return solucion
 
 ##############################
 #          TESTS             #
 ##############################
 
+def test_voraz():
+    lista1 = voraz([1,3,2])
+    lista2 = voraz([5,1,3,2,4,6])
+    lista3 = voraz([])
+    assert lista1 == [1, 3]
+    assert lista2 == [1, 6]
+    assert lista3 == []
