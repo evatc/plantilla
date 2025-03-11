@@ -2,7 +2,7 @@ import math
 
 def es_primo(numero: int) -> bool:
     """Determina si un número es primo."""
-    assert int >= 0,  """tiene que ser positivo o cero"""
+    assert numero >= 0,  """tiene que ser positivo o cero"""
     if numero < 2:
         return False  # 0 y 1 no son primos
 

@@ -20,12 +20,12 @@ def voraz(candidatos :list) -> list:
     solucion = []
     if(len(candidatos) != 0):
         if(len(candidatos) % 2 == 0):
-            if candidato[0] > candidato[1]:
-                maximo = candidato[0]
-                minimo = candidato[1]
+            if candidatos[0] > candidatos[1]:
+                maximo = candidatos[0]
+                minimo = candidatos[1]
             else:
-                maximo = candidato[1]
-                minimo = candidato[0]
+                maximo = candidatos[1]
+                minimo = candidatos[0]
             candidatos = candidatos[2:]
         else:
             maximo = candidatos[0]

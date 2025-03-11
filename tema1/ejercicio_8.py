@@ -1,5 +1,5 @@
 def inverso(n: int) -> str:
-    assert int >= 0, """El número debe ser mayor a 0"""
+    assert n >= 0, """El número debe ser mayor a 0"""
     numero = str(n)  # Convert the number to string
     if len(numero) == 1:
         return numero

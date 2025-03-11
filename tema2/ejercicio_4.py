@@ -44,3 +44,19 @@ def sumar(lista: list) -> float:
     for i in lista:
         cont += i[2]
     return cont
+
+##############################
+#          TESTS             #
+##############################
+
+def test_sumar():
+    nodos = [{'Sevilla'}, {'Madrid'}, {'Barcelona'}, {'Cuenca'}, {'Valencia'}]
+    aristas = []
+    aristas.append(('Sevilla', 'Madrid', 7))
+    aristas.append(('Madrid', 'Barcelona', 5))
+    aristas.append(('Madrid', 'Cuenca', 2))
+    aristas.append(('Barcelona', 'Valencia', 4))
+    aristas.append(('Cuenca', 'Valencia', 3))
+    arbol_expansion_minima = kruskal(aristas, nodos)
+    resultado = sumar(arbol_expansion_minima)
+    assert resultado == 16

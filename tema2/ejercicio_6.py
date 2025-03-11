@@ -33,6 +33,18 @@ def voraz(candidatos :list) -> list:
 
     return pistas
 
+##############################
+#          TESTS             #
+##############################
+
+def test_voraz():
+    horarios = [(10,12),(9,11),(11,13),(12,14),(11,12)]
+    resultado = voraz(horarios)
+    assert resultado == 3
+
+    horarios1 = []
+    resultado1 = voraz(horarios1)
+    assert resultado1 == 0
 
 
 
