@@ -2,6 +2,7 @@ import math
 
 def es_primo(numero: int) -> bool:
     """Determina si un número es primo."""
+    assert int >= 0,  """tiene que ser positivo o cero"""
     if numero < 2:
         return False  # 0 y 1 no son primos
 
@@ -20,8 +21,8 @@ def es_primo(numero: int) -> bool:
 def test_es_primo():
     numero1 = es_primo(2)
     numero2 = es_primo(6)
-    numero3 = es_primo(5)
+    numero3 = es_primo(0)
     assert numero1 == True
     assert numero2 == False
-    assert numero3 == True
+    assert numero3 == False
 
