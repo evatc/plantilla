@@ -37,8 +37,7 @@ def voraz(candidatos :list) -> list:
         
         while len(candidatos) > 0:
             c = mejor_candidato(candidatos) # c es los dos nuevos primeros elementos de la lista candidatos
-            candidatos.remove(c[0])
-            candidatos.remove(c[1])
+            candidatos = candidatos[2:]
             es_completable(solucion, c)
     return solucion
 
