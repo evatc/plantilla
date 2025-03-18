@@ -9,7 +9,7 @@ def es_completable(lista :list, candidato :any) -> any:
     for i in lista:
         cont += 1
         if(candidato[0] >= i[1]): 
-            return (False,cont)              #devuelve false si tenemos que cambiar la lista de pista y devuelve la posición en la que tenemos q cambiarlo
+            return (False,cont)        # Devuelve false si podemos meterlo en una de las pistas que ya teníamos y devuelve tambien la posición de la lista donde deberiamos meter el nuevo horario
     return (bool,cont)
 
 
@@ -17,18 +17,18 @@ def voraz(candidatos :list) -> list:
     pistas = 0
     lista = []
     if(len(candidatos) > 0):
-        candidatos = sorted(candidatos)      #ordenamos la lista según la hora de entrada 
-        lista.append(candidatos[0])
-        candidatos.remove(candidatos[0])
+        candidatos = sorted(candidatos)      # Ordenamos la lista según la hora de entrada 
+        lista.append(candidatos[0])        # Añadimos el primer elemento a la lista 
+        candidatos = candidatos[1:]        # Y lo eliminamos de candidatos
         pistas = 1
         while len(candidatos) > 0:
             c = mejor_candidato(candidatos)
-            candidatos.remove(c)
+            candidatos = candidatos[1:] 
             comp = es_completable(lista, c)
-            if (comp[0]):                       #suma una pista y añade el horario de la pista
+            if (comp[0]):                       # Si comp es verdadero se suma una pista y se añade el horario de la pista a la lista 
                 pistas += 1
                 lista.append(c)
-            else:                               #cambia la lista por el nuevo horario
+            else:                               # Si es falso se pone en la lista el nuevo horario
                 lista[comp[1]] = c
 
     return pistas
@@ -45,14 +45,3 @@ def test_voraz():
     horarios1 = []
     resultado1 = voraz(horarios1)
     assert resultado1 == 0
-
-
-
-
-
-
-
-
-
-
-
