@@ -1,36 +1,34 @@
-import random
+def robot(lbotellas :list, lcorchos :list) -> any:
+    resultado = []
+    def recursiva(lbotellas :list, lcorchos :list,resultado :list) -> any:
+        listaizqb = []
+        listadchab = []
+        listaizqc = []
+        listadchac = []
+        assert len(lbotellas) == len(lcorchos)  # Comprueba que lbotellas y lcorchos tengan el mismo número de elementos
+        if(len(lbotellas) != 0 and len(lcorchos) != 0):
+            pivote = lbotellas[0]      
+            for corcho in lcorchos:
+                if pivote>corcho:
+                    listaizqc.append(corcho)
+                elif pivote<corcho:
+                    listadchac.append(corcho)
+                else:
+                    resultado.append([corcho,pivote])
 
-def robot(arrayb :list, arrayc :list) -> any:
-    listar = []
-    recursiva(arrayb, arrayc, listar)
-    return listar
+            pivote = resultado[-1][0]  #Coge el mismo pivote que en lo anterior, pero coge el corcho para compararlo con las botellas
+            for botella in lbotellas:
+                if pivote>botella:
+                    listaizqb.append(botella)
+                elif pivote<botella:
+                    listadchab.append(botella)
+            recursiva(listaizqb,listaizqc,resultado)
+            recursiva(listadchab,listadchac,resultado)
+
+        return resultado
+    return recursiva(lbotellas, lcorchos, resultado)
 
 
-def recursiva(arrayb :list, arrayc :list,arrayr :list) -> any:
-    listaizqb = []
-    listadchab = []
-    listaizqc = []
-    listadchac = []
-    if(len(arrayb) != 0 and len(arrayc) != 0):
-        pivote = arrayb[0]      
-        for corcho in arrayc:
-            if pivote>corcho:
-                listaizqc.append(corcho)
-            elif pivote<corcho:
-                listadchac.append(corcho)
-            else:
-                arrayr.append([corcho,pivote])
-
-        pivote = arrayr[-1][0]  #Coge el mismo pivote que en lo anterior, pero coge el corcho para compararlo con las botellas
-        for botella in arrayb:
-            if pivote>botella:
-                listaizqb.append(botella)
-            elif pivote<botella:
-                listadchab.append(botella)
-        recursiva(listaizqb,listaizqc,arrayr)
-        recursiva(listadchab,listadchac,arrayr)
-
-    return arrayr
 
 ##############################
 #          TESTS             #
