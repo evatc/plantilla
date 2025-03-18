@@ -1,11 +1,11 @@
 def robot(lbotellas :list, lcorchos :list) -> any:
+    assert len(lbotellas) == len(lcorchos)  # Comprueba que lbotellas y lcorchos tengan el mismo número de elementos
     resultado = []
     def recursiva(lbotellas :list, lcorchos :list,resultado :list) -> any:
         listaizqb = []
         listadchab = []
         listaizqc = []
         listadchac = []
-        assert len(lbotellas) == len(lcorchos)  # Comprueba que lbotellas y lcorchos tengan el mismo número de elementos
         if(len(lbotellas) != 0 and len(lcorchos) != 0):
             pivote = lbotellas[0]      
             for corcho in lcorchos:
