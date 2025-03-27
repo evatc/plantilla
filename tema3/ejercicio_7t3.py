@@ -1,25 +1,28 @@
-def invertir_callejero(callejero):
-    n = len(callejero)
-    nuevo_callejero = [[0] * n for _ in range(n)]
+def trasponer_matriz(matriz):
+    n = len(matriz)
+    solucion = []
+    for i in range (n): # Crea una matriz cuadrada de 0
+        fila = [0]*n
+        solucion.append(fila)
     
-    def dividir_y_vencer(callejero, nuevo_callejero, inicio_fila, fin_fila, inicio_columna, fin_columna):
+    def dividir(matriz, solucion, inicio_fila, fin_fila, inicio_columna, fin_columna):
         if inicio_fila == fin_fila and inicio_columna == fin_columna:
-            nuevo_callejero[inicio_columna][inicio_fila] = callejero[inicio_fila][inicio_columna]
+            solucion[inicio_columna][inicio_fila] = matriz[inicio_fila][inicio_columna]
         else:
             mitad_fila = (inicio_fila + fin_fila) // 2
             mitad_columna = (inicio_columna + fin_columna) // 2
             
             if inicio_fila <= mitad_fila and inicio_columna <= mitad_columna:
-                dividir_y_vencer(callejero, nuevo_callejero, inicio_fila, mitad_fila, inicio_columna, mitad_columna)
+                dividir(matriz, solucion, inicio_fila, mitad_fila, inicio_columna, mitad_columna)
             if inicio_fila <= mitad_fila and mitad_columna + 1 <= fin_columna:
-                dividir_y_vencer(callejero, nuevo_callejero, inicio_fila, mitad_fila, mitad_columna + 1, fin_columna)
+                dividir(matriz, solucion, inicio_fila, mitad_fila, mitad_columna + 1, fin_columna)
             if mitad_fila + 1 <= fin_fila and inicio_columna <= mitad_columna:
-                dividir_y_vencer(callejero, nuevo_callejero, mitad_fila + 1, fin_fila, inicio_columna, mitad_columna)
+                dividir(matriz, solucion, mitad_fila + 1, fin_fila, inicio_columna, mitad_columna)
             if mitad_fila + 1 <= fin_fila and mitad_columna + 1 <= fin_columna:
-                dividir_y_vencer(callejero, nuevo_callejero, mitad_fila + 1, fin_fila, mitad_columna + 1, fin_columna)
+                dividir(matriz, solucion, mitad_fila + 1, fin_fila, mitad_columna + 1, fin_columna)
     
-    dividir_y_vencer(callejero, nuevo_callejero, 0, n - 1, 0, n - 1)
-    return nuevo_callejero
+    dividir(matriz, solucion, 0, n - 1, 0, n - 1)
+    return solucion
 
 # Ejemplo de uso
 callejero = [
