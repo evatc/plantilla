@@ -24,14 +24,16 @@ def trasponer_matriz(matriz):
     dividir(matriz, solucion, 0, n - 1, 0, n - 1)
     return solucion
 
-# Ejemplo de uso
-callejero = [
+##############################
+#          TESTS             #
+##############################
+
+def test_trasponer_matriz():
+    matriz = [
     [0, 1, 0],
     [0, 0, 1],
-    [1, 0, 0]
-]
-
-nuevo_callejero = trasponer_matriz(callejero)
-for fila in nuevo_callejero:
-    print(fila)
+    [1, 0, 1]
+    ]
+    matriz_traspuesta = trasponer_matriz(matriz)
+    assert matriz_traspuesta == [[0,0,1],[1,0,0],[0,1,1]]
     
