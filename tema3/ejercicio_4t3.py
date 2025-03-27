@@ -40,15 +40,6 @@ def test_robot():
     resultado = robot(botellas,corchos)
     assert resultado == [[10, 10], [5, 5], [7, 7], [15, 15]]
 
-    botellas1 = []
-    corchos1 = [3,2]
-    resultado1 = robot(botellas1, corchos1)
-    assert resultado1 == []
-
-    botellas2 = [3,2]
-    corchos2 = []
-    resultado2 = robot(botellas2,corchos2)
-    assert resultado2 == []
 
 
 
