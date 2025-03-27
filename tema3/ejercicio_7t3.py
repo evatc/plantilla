@@ -31,7 +31,7 @@ callejero = [
     [1, 0, 0]
 ]
 
-nuevo_callejero = invertir_callejero(callejero)
+nuevo_callejero = trasponer_matriz(callejero)
 for fila in nuevo_callejero:
     print(fila)
     

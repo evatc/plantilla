@@ -9,12 +9,18 @@ import tema2.ejercicio_3
 import tema2.ejercicio_4
 import tema2.ejercicio_6
 import tema3.ejercicio_4t3
+import tema3.ejercicio_7t3
 
 def main(args :list[str]) -> bool:
-    #print(tema1.ejercicio_5.es_primo(5))
-    #print(tema1.ejercicio_8.inverso(627))
-    #print(tema2.ejercicio_3.voraz([1,3,2]))
-    """nodos = [{'Sevilla'}, {'Madrid'}, {'Barcelona'}, {'Cuenca'}, {'Valencia'}]
+    #práctica 1
+    print(tema1.ejercicio_5.es_primo(5))
+    
+    print(tema1.ejercicio_8.inverso(627))
+    
+    #práctica 2
+    print(tema2.ejercicio_3.voraz([1,3,2]))
+    
+    nodos = [{'Sevilla'}, {'Madrid'}, {'Barcelona'}, {'Cuenca'}, {'Valencia'}]
     aristas = []
     aristas.append(('Sevilla', 'Madrid', 7))
     aristas.append(('Madrid', 'Barcelona', 5))
@@ -24,9 +30,23 @@ def main(args :list[str]) -> bool:
     arbol_expansion_minima = tema2.ejercicio_4.kruskal(aristas, nodos)
     for arista in arbol_expansion_minima:
         print(arista)
-    print("El coste total es: " + str(tema2.ejercicio_4.sumar(arbol_expansion_minima)))"""
-    #print("El número de pistas necesario es de " + str(tema2.ejercicio_6.voraz([(10,12),(9,11),(11,13),(12,14),(11,12)])))
+    
+    print("El coste total es: " + str(tema2.ejercicio_4.sumar(arbol_expansion_minima)))
+    
+    print("El número de pistas necesario es de " + str(tema2.ejercicio_6.voraz([(10,12),(9,11),(11,13),(12,14),(11,12)])))
+    
+    #práctica 3
     print(tema3.ejercicio_4t3.robot([10,15,5,7],[5,10,7,15]))
+
+    callejero = [
+    [0, 1, 0],
+    [0, 0, 1],
+    [1, 0, 0]
+    ]
+    nuevo_callejero = tema3.ejercicio_7t3.trasponer_matriz(callejero)
+    for fila in nuevo_callejero:
+        print(fila)
+
 
 if __name__ == '__main__': # Si este modulo es el principal
     if '--test' in sys.argv: # Si existe "--test" en la linea de argumentos
